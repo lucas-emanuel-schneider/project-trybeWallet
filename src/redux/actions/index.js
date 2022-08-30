@@ -5,10 +5,12 @@ export const GET_API_ERROR = 'GET_ERROR';
 export const GET_EMAIL = 'GET_EMAIL';
 export const SAVE_WALLET_FORM = 'SAVE_WALLET_FORM';
 export const RESPONSE_API_FULL = 'RESPONSE_API_FULL';
+export const DELETE_EXPENSE = 'DELETE_EXPENSE';
 
 export const requestApi = () => ({ type: REQUEST_API });
 export const saveWallet = (expenses) => ({ type: SAVE_WALLET_FORM, expenses,
 });
+export const deleteExpenseAction = (id) => ({ type: DELETE_EXPENSE, id });
 export const responseApi = (currencies) => ({ type: RESPONSE_API, currencies });
 export const getError = (error) => ({ type: GET_API_ERROR, error });
 export const getEmail = (email) => ({
