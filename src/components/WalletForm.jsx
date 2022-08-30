@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { saveWallet, fetchApi } from '../redux/actions';
+import { fetchApi } from '../redux/actions';
+
+const INITIAL_STATE = {
+  value: '',
+  currency: 'USD',
+  method: 'Dinheiro',
+  tag: 'Alimentação',
+  description: '',
+};
 
 class WalletForm extends Component {
-  state = {
-    value: '',
-    currency: 'USD',
-    paymentMethod: 'Dinheiro',
-    category: 'Alimentação',
-    description: '',
-  };
+  state = INITIAL_STATE;
 
   componentDidMount() {
     const { dispatch } = this.props;
@@ -20,8 +22,8 @@ class WalletForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const { dispatch } = this.props;
-    const { value, currency, paymentMethod, category, description } = this.state;
-    dispatch(saveWallet({ value, currency, paymentMethod, category, description }));
+    dispatch(fetchApi(true, this.state));
+    this.setState({ ...INITIAL_STATE });
   };
 
   onInputChange = ({ target }) => {
@@ -33,7 +35,7 @@ class WalletForm extends Component {
 
   render() {
     const { currencies } = this.props;
-    const { value, currency, paymentMethod, category, description } = this.state;
+    const { value, currency, method, tag, description } = this.state;
     return (
       <div>
         <form onSubmit={ this.handleSubmit }>
@@ -83,29 +85,29 @@ class WalletForm extends Component {
           <label htmlFor="paymentMethod">
             Método de pagamento:
             <select
-              name="paymentMethod"
+              name="method"
               onChange={ this.onInputChange }
               data-testid="method-input"
-              value={ paymentMethod }
+              value={ method }
             >
-              <option name="paymentMethod" value="cash">
+              <option name="method" value="Dinheiro">
                 Dinheiro
               </option>
-              <option name="paymentMethod" value="credit">
+              <option name="method" value="Cartão de crédito">
                 Cartão de crédito
               </option>
-              <option name="paymentMethod" value="debit">
+              <option name="method" value="Cartão de débito">
                 Cartão de débito
               </option>
             </select>
           </label>
-          <label htmlFor="category">
+          <label htmlFor="tag">
             Categoria :
             <select
-              name="category"
+              name="tag"
               onChange={ this.onInputChange }
               data-testid="tag-input"
-              value={ category }
+              value={ tag }
             >
               <option value="Alimentação">Alimentação</option>
               <option value="Lazer">Lazer</option>

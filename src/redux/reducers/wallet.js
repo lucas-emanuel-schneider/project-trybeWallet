@@ -27,9 +27,10 @@ const wallet = (state = INITIAL_STATE, action) => {
     };
   case SAVE_WALLET_FORM: return {
     ...state,
-    expenses: [...state.wallet.expenses, {
-      id: state.wallet.expenses.length,
-      ...action.expense,
+    expenses: [...state.expenses, {
+      id: state.expenses.length,
+      ...action.expenses.state,
+      exchangeRates: action.expenses.exchangeRates,
     }],
     isFetching: false,
   };
