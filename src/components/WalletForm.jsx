@@ -43,6 +43,7 @@ class WalletForm extends Component {
             Valor:
             <input
               type="number"
+              id="value"
               name="value"
               onChange={ this.onInputChange }
               data-testid="value-input"
@@ -54,6 +55,7 @@ class WalletForm extends Component {
             Descrição:
             <input
               name="description"
+              id="description"
               type="text"
               placeholder="descrição da despesa"
               data-testid="description-input"
@@ -65,6 +67,7 @@ class WalletForm extends Component {
             Moeda:
             <select
               name="currency"
+              id="currency"
               onChange={ this.onInputChange }
               data-testid="currency-input"
               value={ currency }
@@ -86,6 +89,7 @@ class WalletForm extends Component {
             Método de pagamento:
             <select
               name="method"
+              id="paymentMethod"
               onChange={ this.onInputChange }
               data-testid="method-input"
               value={ method }
@@ -105,6 +109,7 @@ class WalletForm extends Component {
             Categoria :
             <select
               name="tag"
+              id="tag"
               onChange={ this.onInputChange }
               data-testid="tag-input"
               value={ tag }
