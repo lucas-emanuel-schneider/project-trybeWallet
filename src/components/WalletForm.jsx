@@ -42,9 +42,8 @@ class WalletForm extends Component {
   };
 
   onInputChange = ({ target }) => {
-    const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
-      [target.name]: value,
+      [target.name]: target.value,
     });
   };
 

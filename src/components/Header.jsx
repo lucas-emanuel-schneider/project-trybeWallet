@@ -18,12 +18,12 @@ class Header extends Component {
     return (
       <div>
         <p data-testid="email-field">{`Email:${email}`}</p>
-        <p
+        <h2
           data-testid="total-field"
         >
           { this.getTotalValue() }
-        </p>
-        <p data-testid="header-currency-field">{ initialCurrency }</p>
+        </h2>
+        <h3 data-testid="header-currency-field">{ initialCurrency }</h3>
       </div>
     );
   }

@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import renderWithRouterAndRedux from './helpers/renderWith';
 import App from '../App';
 
+const testEmail = 'teste@trybe.com';
 describe('Testando componente Login', () => {
   it('Testa se o componente Login possui os inputs e o button', () => {
     renderWithRouterAndRedux(<App />);
@@ -33,7 +34,6 @@ describe('Testando componente Login', () => {
     const emailInput = screen.getByPlaceholderText(/email/i);
     const passwordInput = screen.getByPlaceholderText(/senha/i);
     // Dados para o teste:
-    const testEmail = 'teste@trybe.com';
     const testPassword = '123456';
     // Digita os dados corretamente
     userEvent.type(emailInput, testEmail);
@@ -49,7 +49,6 @@ describe('Testando componente Login', () => {
     const emailInput = screen.getByPlaceholderText(/email/i);
     const passwordInput = screen.getByPlaceholderText(/senha/i);
     // Dados para o teste:
-    const testEmail = 'teste@trybe.com';
     const testPassword = '123456';
     const pathName = '/carteira';
     // Digita os dados corretamente depois clica no Button
